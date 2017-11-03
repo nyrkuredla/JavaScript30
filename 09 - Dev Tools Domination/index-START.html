@@ -18,29 +18,56 @@
     }
 
     // Regular
+    console.log('hello')
 
     // Interpolated
+    // ES6 backticks can also be used for this
+    console.log('hello, I am a %s string', 'blghgghg' )
 
     // Styled
+    console.log('%c I am some great text!', 'font-size: 16px')
 
     // warning!
+    console.warn('nooooo')
 
     // Error :|
+    console.error('uh ohhhhh')
 
     // Info
+    console.info('fact: you eat on average 8 spiders in your sleep. this is true')
 
     // Testing
+    console.assert(1 !== 1, 'not true, get better math')
 
     // clearing
+    console.clear()
 
     // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.dir(p)
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}.`);
+      console.log(`${dog.name} is ${dog.age} years old.`);
+      console.log(`That's ${dog.age * 7} dog years old.`);
+      console.log(`Who's a good pup, ${dog.name}? You are! Yes, you!!`);
+      console.groupEnd(`${dog.name}`);
+    })
+
 
     // counting
+    console.count(p) // how many times does p element appear in the document
+
+    console.count('Dewey'); // 1
+    console.count('Dewey'); // 2
+    console.count('Dewey'); // 3
 
     // timing
-
+    console.time();
+    // in here will go a function; the console time will tell you how long that function takes to complete
+    console.timeEnd();
   </script>
 </body>
 </html>

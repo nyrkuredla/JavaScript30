@@ -183,9 +183,15 @@
   </ul>
 <script>
   const timeNodes = document.querySelectorAll('[data-time]')
-  console.log(timeNodes)
-  const timeArr = [...timeNodes]
-  console.log('time arr!', timeArr)
+  const nodesArr = [...timeNodes];
+  const timesArr = nodesArr
+  .map(node => node.dataset.time)
+  .map(timeCode => {
+    const [min, sec] = timeCode.split(":").map(parseFloat);
+    return (min * 60) + sec;
+  })
+  console.log(timesArr)
+
 </script>
 </body>
 </html>

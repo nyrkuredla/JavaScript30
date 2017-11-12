@@ -190,6 +190,7 @@
     const [min, sec] = timeCode.split(":").map(parseFloat);
     return (min * 60) + sec;
   })
+  .reduce((total, seconds) => total + seconds)
   console.log(timesArr)
 
 </script>

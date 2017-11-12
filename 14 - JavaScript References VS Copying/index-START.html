@@ -48,20 +48,28 @@
     console.log(players, team2)
 
     // or create a new array and concat the old one in
-
+    const team3 = [].concat(players);
     // or use the new ES6 Spread
-
+    const team4 = [...players];
     // now when we update it, the original one isn't changed
-
+    //also:
+    const team5 = Array.from(players) //note the capitalization on Array, this is a prototypical function
+    console.clear();
     // The same thing goes for objects, let's say we have a person object
-
-    // with Objects
+    const person = {
+      name: "Ryan",
+      age: 30
+    }
 
     // and think we make a copy:
-
+    const lady = person;
+    lady.hair = "brown";
+    console.log(person); // will return with new "hair" property
     // how do we take a copy instead?
-
-    // We will hopefully soon see the object ...spread
+    const woman = {...person}
+    console.log(woman)
+    woman.eyes = "hazel";
+    console.log(person, woman) //woman has hazel eyes but person does not
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
 

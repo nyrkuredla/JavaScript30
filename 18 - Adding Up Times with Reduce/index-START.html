@@ -183,15 +183,33 @@
   </ul>
 <script>
   const timeNodes = document.querySelectorAll('[data-time]')
+  //the original value comes back as a nodelist, we have to convert it to an array in order to access the map and reduce functions. we could also use a forEach with the nodelist but the map and reduce functions are more versatile and cleaner
   const nodesArr = [...timeNodes];
   const timesArr = nodesArr
+  //plucking out the time attribute from the nodelist
   .map(node => node.dataset.time)
   .map(timeCode => {
+    //ES6 destructuring and converting strings to floats so we can add them properly
     const [min, sec] = timeCode.split(":").map(parseFloat);
     return (min * 60) + sec;
   })
+  //getting total number of seconds
   .reduce((total, seconds) => total + seconds)
-  console.log(timesArr)
+
+  let secondsLeft = seconds;
+  //dividing by 3600 (seconds in an hour); math.floor returns only the round number because we don't care about the remainder (minutes and seconds left over)
+  const hours = Math.floor(secondsLeft / 3600);
+  //getting the seconds left over when you modulo by 3600; essentially doing the same thing as above, removing the hours, but from the other side.
+  secondsLeft = secondsLeft % 3600;
+
+  //now do the same thing for minutes
+  const minutes = Math.floor(secondsLeft / 60);
+  secondsLeft = secondsLeft % 60;
+
+  //what's left over is now the seconds, the minutes and hours have been taken away.
+
+  //and console log the result!
+  console.log(hours, minutes, secondsLeft)
 
 </script>
 </body>

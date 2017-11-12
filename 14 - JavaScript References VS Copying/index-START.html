@@ -8,6 +8,21 @@
 
   <script>
     // start with strings, numbers and booleans
+    let age = 100;
+    let age2 = age;
+    console.log(age, age2);
+    //this reassigns the first variable but the second remains what it was originally assigned
+    age = 200;
+    console.log(age, age2);
+
+    let name = "Ryan";
+    let name2 = name;
+    console.log(name, name2) //they will be the same
+    name2 = "Kelley"
+    console.log(name, name2) //again, the first has changed but not the second
+
+
+
 
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];

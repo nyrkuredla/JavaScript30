@@ -39,6 +39,19 @@
     items.push(item);
     this.reset();
   }
+
+  function populateList(items = [], plateslist) { //if we pass in a default empty array, if we forget to populate it it will not break, it will just be empty. similarly we could pass in *any* list here which makes the function more resilient than just passing in the items list we already have that is specific to this context
+    platesList.innerHTML = plates.map((plate, i) => {
+      return `
+        <li>
+          <label for="">
+            ${plate.text}
+          </label>
+        </li>
+      `
+    }).join(''); //taking the array that map makes and making it one big string
+  }
+
   addItems.addEventListener('submit', addItem);
 
 

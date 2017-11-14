@@ -56,8 +56,17 @@
     }).join(''); //taking the array that map makes and making it one big string
   }
 
-  addItems.addEventListener('submit', addItem);
+  function toggleDone(evt) {
+    if (!evt.target.matches('input')) return; //skip the click unless it's on an input (checkbox)
+    else {
+      const el = evt.target;
+      const index = el.dataset.index;
+      items[index].done = !items[index].done
+    }
+  }
 
+  addItems.addEventListener('submit', addItem);
+  itemsList.addEventListener('click', toggleDone); //target parent since children aren't created yet
   populateList(items, itemsList) //now that we are creating this function, go back up to where "items" is declared and add what we have saved in local storage. we will need to parse it from a string value to an array of objects. We still keep the "empty array" option in case there is nothing in local storage.
 
 

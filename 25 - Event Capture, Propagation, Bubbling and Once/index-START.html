@@ -39,6 +39,13 @@
 
 <button></button>
 <script>
+const divs = document.querySelectorAll('div');
+function logText(evt) {
+  console.log(this.classList.value);
+  evt.stopPropagation(); //stops event from bubbling up to 'outer' divs
+}
+
+divs.forEach(div => div.addEventListener('click', logText, { capture: false, once: true })) //capture stops it on the way 'down'; if this were set to true, clicking on div.three would log 'one'. once means that the event fires once only. for example, in a store checkout or something.
 
 </script>
 </body>
